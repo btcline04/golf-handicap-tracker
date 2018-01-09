@@ -1,16 +1,17 @@
 class BagsController < ApplicationController
   before_action :find_bag, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @bags = Bag.all
   end
 
   def new
-    @bag = Bag.new
+    @bag = current_user.bags.build
   end
 
   def create
-    @bag = Bag.new(bag_params)
+    @bag = current_user.bags.build(bag_params)
     if @bag.save
       redirect_to bag_path(@bag)
     else
