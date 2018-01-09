@@ -2,6 +2,7 @@ class BagsController < ApplicationController
   before_action :find_bag, only: [:show, :edit, :update, :destroy]
 
   def index
+    @bags = Bag.all
   end
 
   def new
