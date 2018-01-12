@@ -1,6 +1,6 @@
-<h2>All Bags</h2>
+<h2>Your Bags</h2>
 <br>
-<% @bags.each do |b| %>
+<% current_user.bags.each do |b| %>
   <p><%= b.title %></p>
   <p><%= b.brand %></p>
 <% end %>

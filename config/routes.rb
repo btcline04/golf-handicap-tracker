@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
 devise_for :users
-root 'bags#index'
+root 'bags#new'
+
 resources :clubs
 resources :bags
 
