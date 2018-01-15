@@ -1,9 +1,13 @@
 class ClubsController < ApplicationController
+  before_action :find_club, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
+    @clubs = Club.all
   end
 
   def new
-    @club = Club.new
+    @club = current_user.clubs.build
   end
 
   def edit
@@ -13,7 +17,12 @@ class ClubsController < ApplicationController
   end
 
   def create
-
+    @club = current_user.clubs.build(club_params)
+      if @club.save
+        redirect_to club_path(@club)
+      else
+        redirect_to new_club_path, notice: "Try again!"
+      end
   end
 
   def update
