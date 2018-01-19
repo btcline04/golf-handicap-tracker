@@ -1,8 +1,11 @@
-<h1>Your Clubs</h1>
-<br>
-  <div>
-    <% current_user.clubs.each do |c| %>
-      <p>c.name</p>
-      <p>c.brand</p>
-    <% end %>
-  </div>
+<div class="container-fluid">
+  <h1>Your Clubs</h1>
+  <br>
+    <div>
+      <% current_user.clubs.each do |c| %>
+        <p>c.name</p>
+        <p>c.brand</p>
+      <% end %>
+    </div>
+      <%= link_to "Create a new club", new_club_path %>
+</div>
