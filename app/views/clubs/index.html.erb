@@ -1,11 +1,10 @@
 <div class="container-fluid">
-  <h1>Your Clubs</h1>
+  <h2>Your Clubs</h2>
   <br>
-    <div>
-      <% current_user.clubs.each do |c| %>
-        <p>c.name</p>
-        <p>c.brand</p>
-      <% end %>
-    </div>
-      <%= link_to "Create a new club", new_club_path %>
+  <% current_user.clubs.each do |c| %>
+    <p><%= c.title %></p>
+    <p><%= c.brand %></p>
+  <% end %>
+  <br>
+    <%= link_to "Create a new club", new_club_path %>
 </div>

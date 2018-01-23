@@ -58,6 +58,7 @@ gem 'oauth', '~> 0.5.4'
 gem 'sprockets-rails', '~> 3.2', '>= 3.2.1', require: 'sprockets/railtie'
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'jquery-rails'
+gem 'pry-rails', '~> 0.3.4'
 
 
 

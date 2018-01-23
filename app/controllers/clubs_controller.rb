@@ -10,19 +10,19 @@ class ClubsController < ApplicationController
     @club = current_user.clubs.build
   end
 
+  def create
+    @club = current_user.clubs.build(club_params)
+    if @club.save
+      redirect_to club_path(@club)
+    else
+      redirect_to new_club_path, notice: "Try again!"
+    end
+  end
+
   def edit
   end
 
   def show
-  end
-
-  def create
-    @club = current_user.clubs.build(club_params)
-      if @club.save
-        redirect_to club_path(@club)
-      else
-        redirect_to new_club_path, notice: "Try again!"
-      end
   end
 
   def update
