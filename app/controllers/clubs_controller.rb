@@ -7,15 +7,16 @@ class ClubsController < ApplicationController
   end
 
   def new
-    @club = current_user.clubs.build
+    @club = Club.new
   end
 
   def create
-    @club = current_user.clubs.build(club_params)
+    @club = Club.new(club_params)
+    @club.user_id = current_user.id
     if @club.save
       redirect_to club_path(@club)
     else
-      redirect_to new_club_path, notice: "Try again!"
+      redirect_to new_club_path, message: "Try again!"
     end
   end
 
@@ -36,7 +37,7 @@ class ClubsController < ApplicationController
   end
 
   def club_params
-    params.require(:club).permit(:name, :brand)
+    params.require(:club).permit(:name, :brand, :bag_id)
   end
 
 end

@@ -12,7 +12,6 @@ class BagsController < ApplicationController
 
   def create
     @bag = current_user.bags.build(bag_params)
-    binding.pry
     if @bag.save
       redirect_to bag_path(@bag)
     else
