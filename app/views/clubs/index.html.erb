@@ -2,7 +2,7 @@
   <h2>Your Clubs</h2>
   <br>
   <% current_user.clubs.each do |c| %>
-    <p><%= c.title %></p>
+    <p><%= c.name %></p>
     <p><%= c.brand %></p>
   <% end %>
   <br>
