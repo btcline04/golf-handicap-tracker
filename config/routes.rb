@@ -5,6 +5,8 @@ root 'bags#new'
 
 resources :clubs
 resources :bags
+resources :courses
+
 
 get '/auth/facebook/callback' => 'sessions#create'
 
