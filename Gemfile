@@ -54,11 +54,13 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'simple_form', '~> 3.5'
 gem 'devise', '~> 4.4'
-gem 'oauth', '~> 0.5.4'
+gem 'omniauth'
+gem 'omniauth-facebook'
 gem 'sprockets-rails', '~> 3.2', '>= 3.2.1', require: 'sprockets/railtie'
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'jquery-rails'
 gem 'pry-rails', '~> 0.3.4'
+gem 'dotenv-rails'
 
 
 
