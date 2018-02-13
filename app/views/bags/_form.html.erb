@@ -1,5 +1,5 @@
 <%= simple_form_for @bag do |f| %>
   <%= f.input :title %>
   <%= f.input :brand %>
-  <%= f.button :submit %>
+  <%= button_tag(type: 'submit', class: "btn btn-primary") do %> Create Bag <% end %>
 <% end %>

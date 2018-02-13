@@ -5,6 +5,6 @@
     <%= f.collection_select :bag_id, current_user.bags, :id, :title, prompt: "Please pick the bag that this club belongs to:" %>
     <br>
     <br>
-    <%= f.button :submit %>
+    <%= button_tag(type: 'submit', class: "btn btn-primary") do %> Create Club <% end %>  
   <% end %>
 </div>
