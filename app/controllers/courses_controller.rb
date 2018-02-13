@@ -1,5 +1,7 @@
 class CoursesController < ApplicationController
-
+  before_action :find_course
+  before_action :authenticate_user!
+  
   def index
   end
 
@@ -27,5 +29,5 @@ class CoursesController < ApplicationController
   def course_params
     params.require(:clubs).permit(:name, :location, :par)
   end
-  
+
 end
