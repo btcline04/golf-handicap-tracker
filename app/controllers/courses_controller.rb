@@ -1,11 +1,13 @@
 class CoursesController < ApplicationController
-  before_action :find_course
+  before_action :find_course, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  
+
   def index
+    @courses = Course.all
   end
 
   def new
+    @course = Course.new
   end
 
   def create
