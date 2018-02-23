@@ -1,7 +1,7 @@
 <div class="container-fluid">
-   <%= simple_form_for [@course, @round] do |f| %>
+   <%= simple_form_for ([@course, @round]) do |f| %>
     <%= f.input :score %>
     <%= f.input :date %>
-    <%= button_tag(type: 'submit', class: "btn btn-primary") do %> Create Course <% end %>
+    <%= button_tag(type: 'submit', class: "btn btn-primary") do %> Post Round <% end %>
   <% end %>
 </div>

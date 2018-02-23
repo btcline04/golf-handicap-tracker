@@ -9,8 +9,8 @@ class User < ApplicationRecord
   has_many :bags
   has_many :clubs, through: :bags
   has_many :courses
-  has_many :scores, through: :courses
-
+  has_many :rounds, through: :courses
+  
   def self.from_omniauth(auth)
       where(provider: auth.provider, uid: auth.uid.to_s).first_or_create do |user|
         user.provider = auth.provider
