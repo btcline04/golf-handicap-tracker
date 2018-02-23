@@ -1,9 +1,11 @@
 class RoundsController < ApplicationController
 
   def index
+    @rounds = Round.where("course_id = ?", params[:course_id])
   end
 
   def new
+    
   end
 
 
