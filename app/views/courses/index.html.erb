@@ -1,9 +1,11 @@
 <div class="container-fluid">
   <h1>My Courses</h1>
-    <% current_user.courses.each do |c| %>
+    <% @courses.each do |c| %>
+      <p><%= link_to c do %></p>
       <p><%= c.name %></p>
       <p><%= c.location %></p>
       <p><%= c.par %></p>
+      <% end %>
     <% end %>
   <br>
   <%= link_to "Create a new course", new_course_path %>

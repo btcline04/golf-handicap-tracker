@@ -3,7 +3,7 @@ class CoursesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @courses = Course.all
+    @courses = current_user.courses.all
   end
 
   def new
