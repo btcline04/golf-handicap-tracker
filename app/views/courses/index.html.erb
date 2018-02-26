@@ -3,9 +3,9 @@
     <% @courses.each do |c| %>
       <p><%= link_to c do %></p>
       <p><%= c.name %></p>
+      <% end %>
       <p><%= c.location %></p>
       <p><%= c.par %></p>
-      <% end %>
     <% end %>
   <br>
   <%= link_to "Create a new course", new_course_path %>
