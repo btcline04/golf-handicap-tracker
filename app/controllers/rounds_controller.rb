@@ -13,9 +13,10 @@ class RoundsController < ApplicationController
   def create
     @round = Round.new(round_params)
     if @round.save
-      redirect_to round_path
+      redirect_to round_path(@round)
     else
       render :new
+    end
   end
 
   private
@@ -23,7 +24,5 @@ class RoundsController < ApplicationController
   def round_params
     params.require(:round).permit(:score, :date, :course_id)
   end
-
-  end 
 
 end
