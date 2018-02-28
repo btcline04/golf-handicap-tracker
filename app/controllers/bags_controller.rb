@@ -1,6 +1,6 @@
 class BagsController < ApplicationController
   before_action :find_bag, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!
 
   def index
     @bags = Bag.all

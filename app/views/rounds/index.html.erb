@@ -1,2 +1,7 @@
-<h1>Rounds#index</h1>
-<p>Find me in app/views/rounds/index.html.erb</p>
+<div class="container-fluid">
+  <h2>Your Scores at <%= @course.name %></h2>
+  <% @rounds.each do |r| %>
+    <li><%= r.score %></li>
+    <li><%= r.date.strftime("%D") %></li>
+  <% end %>
+</div>

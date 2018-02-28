@@ -1,2 +1,9 @@
-<h1>Rounds#show</h1>
-<p>Find me in app/views/rounds/show.html.erb</p>
+<div class="container-fluid">
+  <h2>Your Score</h2>
+  <div>
+    <li><%= @round.score %></li>
+    <li><%= @round.date.strftime("%D") %></li>
+  </div>
+  <br>
+  <%= link_to "See all your rounds for this course", course_rounds_path(@course) %>
+</div>

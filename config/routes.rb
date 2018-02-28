@@ -1,15 +1,14 @@
 Rails.application.routes.draw do
 
-devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}
-root 'bags#new'
+root 'bags#index'
 
 resources :clubs
 resources :bags
 resources :courses do
-  resources :rounds, shallow: true
+  resources :rounds
 end
 
-
+devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}
 get '/auth/facebook/callback' => 'sessions#create'
 
 
