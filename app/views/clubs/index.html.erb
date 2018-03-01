@@ -2,8 +2,10 @@
   <h2>Your Clubs</h2>
   <br>
   <% current_user.clubs.each do |c| %>
+    <%= link_to c do %>
     <p><%= c.name %></p>
-    <p><%= c.brand %></p>
+    <% end %>
+    <p>Brand: <%= c.brand %></p>
   <% end %>
   <br>
     <%= link_to "Create a new club", new_club_path %>

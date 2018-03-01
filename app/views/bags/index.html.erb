@@ -2,7 +2,9 @@
   <h2>Your Bags</h2>
   <br>
   <% current_user.bags.each do |b| %>
+    <%= link_to b do %>
     <p><%= b.title %></p>
+    <% end %>
     <p><%= b.brand %></p>
   <% end %>
   <br>
