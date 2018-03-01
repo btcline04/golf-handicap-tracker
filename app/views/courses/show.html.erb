@@ -2,11 +2,11 @@
   <h1><%= @course.name %></h1>
   <br>
   <h2><%= @course.location %></h2>
-  <h2>Par <%= @course.par %></h2>
+  <h2>Par: <%= @course.par %></h2>
   <br>
-  <%= link_to "See Your Rounds At This Course", course_rounds_path(@course) %>
+  <%= link_to "See Your Rounds At #{@course.name}", course_rounds_path(@course) %>
   <br>
-  <%= link_to "Add A Round For This Course", new_course_round_path(@course) %>
+  <%= link_to "Add Another Round at #{@course.name}", new_course_round_path(@course) %>
   <br>
   <%= link_to "My Courses", courses_path %>
 </div>
