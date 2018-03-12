@@ -7,15 +7,17 @@ class BagsController < ApplicationController
   end
 
   def new
-    @bag = current_user.bags.build
+    @bag = Bag.new
+    @bag.clubs.build
   end
 
   def create
     @bag = current_user.bags.build(bag_params)
+    binding.pry
     if @bag.save
       redirect_to bag_path(@bag)
     else
-      redirect_to new_bag_path, notice: "Try again!"
+      redirect_to new_bag_path
     end
   end
 
@@ -32,7 +34,7 @@ class BagsController < ApplicationController
   end
 
   def bag_params
-    params.require(:bag).permit(:title, :brand)
+    params.require(:bag).permit(:title, :brand, clubs_attributes: [:name, :brand])
   end
 
 end
