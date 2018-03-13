@@ -1,22 +1,18 @@
-<%= form_for (@bag) do |f| %>
+<%= simple_form_for @bag do |f| %>
   <p>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <br>
-    <%= f.label :brand %>
-    <%= f.text_field :brand %>
+    <%= f.input :title %>
+    <%= f.input :brand %>
   </p>
   
   <h3>Add a club to your bag while you're at it: </h3>
   <p>
-  <%= f.fields_for :clubs_attributes do |cf| %>
-    <%= cf.label :name %>
-    <%= cf.text_field :name %>
-    <br>
-    <%= cf.label :brand %>
-    <%= cf.text_field :brand %>
+  <%= f.simple_fields_for :clubs_attributes do |cf| %>
+    <%= cf.input :name %>
+    <%= cf.input :brand %>
   <% end %>
   </p>
 
-  <%= f.submit %>   
-<% end %>
+  <%= button_tag(type: 'submit', class: "btn btn-primary") do %> 
+      Create Course 
+    <% end %>
+  <% end %> 
