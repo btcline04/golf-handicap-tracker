@@ -16,6 +16,7 @@ class RoundsController < ApplicationController
     if @round.save
       redirect_to course_round_path(@course, @round)
     else
+      flash[:danger] = "Please fill in all fields and try again!"
       render :new
     end
   end

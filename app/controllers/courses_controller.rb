@@ -15,6 +15,7 @@ class CoursesController < ApplicationController
       if @course.save
         redirect_to course_path(@course)
       else
+        flash[:danger] = "Please fill in all fields and try again!"
         redirect_to new_course_path
       end
   end

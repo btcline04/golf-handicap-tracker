@@ -16,6 +16,7 @@ class BagsController < ApplicationController
     if @bag.save
       redirect_to bag_path(@bag)
     else
+      flash[:danger] = "Please fill in all fields and try again!"
       redirect_to new_bag_path
     end
   end

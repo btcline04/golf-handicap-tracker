@@ -16,7 +16,7 @@ class ClubsController < ApplicationController
     if @club.save
       redirect_to club_path(@club)
     else
-      flash[:notice] = "Make sure all fields are filled in!"
+      flash[:danger] = "Please fill in all fields and try again!"
       redirect_to new_club_path
     end
   end
