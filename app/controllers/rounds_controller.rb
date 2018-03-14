@@ -25,6 +25,10 @@ class RoundsController < ApplicationController
     @round = @course.rounds.find_by(id: params[:id])
   end
 
+  def recent
+    @recent_rounds = Round.most_recent
+  end
+
 
   private
 
