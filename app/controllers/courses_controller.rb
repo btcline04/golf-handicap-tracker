@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :find_course, only: [:show, :edit, :update, :destroy]
+  before_action :find_course, only: [:show, :edit, :update, :destroy, :handicap]
   before_action :authenticate_user!
 
   def index
@@ -27,6 +27,7 @@ class CoursesController < ApplicationController
   end
 
   def show
+    @handicap = @course.rounds
   end
 
   private

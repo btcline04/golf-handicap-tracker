@@ -26,9 +26,8 @@ class RoundsController < ApplicationController
   end
 
   def recent
-    @recent_rounds = Round.most_recent
+    @recent_rounds = current_user.rounds.most_recent
   end
-
 
   private
 

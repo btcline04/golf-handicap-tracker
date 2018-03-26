@@ -4,6 +4,19 @@
   <h2><%= @course.location %></h2>
   <h2>Par: <%= @course.par %></h2>
   <br>
+  <% if @handicap != nil %>
+    <% total = 0 %>
+    <% i = 0 %>
+    <!-- REFACTOR THIS IN A VIEW HELPER -->
+    <% @handicap.each do |handicap| %>
+      <% difference = handicap.score - @course.par %>
+      <% total = difference + total %>
+      <% i = i + 1 %>
+      <% total = total / i %>
+    <% end %>
+    <h3>Handicap at this course: <%= total %></h3>
+  <% end %>
+  <br>
   <%= link_to "See Your Rounds At #{@course.name}", course_rounds_path(@course) %>
   <br>
   <%= link_to "Add Another Round at #{@course.name}", new_course_round_path(@course) %>
