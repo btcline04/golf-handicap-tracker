@@ -61,6 +61,7 @@ gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'jquery-rails'
 gem 'pry-rails', '~> 0.3.4'
 gem 'dotenv-rails'
+gem 'nokogiri', '~> 1.8.2'
 
 
 
