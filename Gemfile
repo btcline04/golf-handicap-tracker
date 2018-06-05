@@ -62,6 +62,7 @@ gem 'jquery-rails'
 gem 'pry-rails', '~> 0.3.4'
 gem 'dotenv-rails'
 gem 'nokogiri', '~> 1.8.2'
+gem 'active_model_serializers'
 
 
 
