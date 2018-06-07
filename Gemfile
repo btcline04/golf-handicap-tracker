@@ -58,11 +58,11 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'sprockets-rails', '~> 3.2', '>= 3.2.1', require: 'sprockets/railtie'
 gem 'bootstrap', '~> 4.0.0.beta2.1'
-gem 'jquery-rails'
 gem 'pry-rails', '~> 0.3.4'
 gem 'dotenv-rails'
 gem 'nokogiri', '~> 1.8.2'
 gem 'active_model_serializers'
+gem 'jquery-rails'
 
 
 

@@ -22,6 +22,7 @@ class BagsController < ApplicationController
   end
 
   def show
+    render json: @bag, status: 201
   end
 
   def edit
