@@ -3,6 +3,7 @@ class BagsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @bag = current_user.bags.first
     @bags = Bag.all
   end
 
@@ -22,7 +23,6 @@ class BagsController < ApplicationController
   end
 
   def show
-    render json: @bag, status: 201
   end
 
   def edit

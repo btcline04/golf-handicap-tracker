@@ -1,13 +1,30 @@
 <div class="container-fluid">
   <h2>Your Bags</h2>
   <br>
-  <% current_user.bags.each do |b| %>
-    <%= link_to b do %>
-    <p><%= b.title %></p>
-    <% end %>
-    <p><%= b.brand %></p>
-  <% end %>
+    <p><%= @bag.title %></p>
+    <p><%= @bag.brand %></p>
   <br>
-  <%= link_to "Create another bag", new_bag_path %>
-  <br>
+
+  <button>See All Bags</button>
+  <div id="bagsdata">
+    <p id="bag-title"></p>
+    <p id="bag-brand"></p>
+  </div>
+
+<%= link_to "Create another bag", new_bag_path %>
+
+ <br>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    $("button").click(function() {
+      $.get("/bags", function(data, status) {
+        console.log(data);
+        // $("#bag-title").text(data["title"]);
+        // $("#bag-brand").text(data["brand"])
+        // alert(status);
+      })
+    });
+  });
+</script>
