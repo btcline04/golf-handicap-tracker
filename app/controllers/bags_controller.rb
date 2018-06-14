@@ -28,6 +28,11 @@ class BagsController < ApplicationController
   def edit
   end
 
+  def bag_data
+    @bags = current_user.bags
+    render json: @bags, status: 201
+  end
+
   private
 
   def find_bag

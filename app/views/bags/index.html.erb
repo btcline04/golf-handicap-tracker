@@ -1,30 +1,47 @@
 <div class="container-fluid">
   <h2>Your Bags</h2>
   <br>
-    <p><%= @bag.title %></p>
-    <p><%= @bag.brand %></p>
   <br>
 
-  <button>See All Bags</button>
-  <div id="bagsdata">
-    <p id="bag-title"></p>
-    <p id="bag-brand"></p>
+  <div id="bags-data">
+    <p><%= @bag.title %></p>
+    <p><%= @bag.brand %></p>
   </div>
 
-<%= link_to "Create another bag", new_bag_path %>
-
- <br>
+  <button id="all_bags">See All Bags</button>
+  <br>
+  <%= link_to "Create another bag", new_bag_path %>
+  <br>
 </div>
 
 <script type="text/javascript" charset="utf-8">
+  // create js prototype here
+  function Bag (brand, title) {
+    this.brand = brand
+    this.title = title
+  };
+
+  Bag.prototype.formatIndex = function() {
+    let postHtml = `
+      <p>${this.brand["title"]}</p>
+      <p>${this.brand["brand"]}</p>
+      <br>
+    `
+    return postHtml;
+  };
+
   $(function() {
-    $("button").click(function() {
-      $.get("/bags", function(data, status) {
-        console.log(data);
-        // $("#bag-title").text(data["title"]);
-        // $("#bag-brand").text(data["brand"])
-        // alert(status);
-      })
+    $("#all_bags").click(function() {
+      $('#bags-data').html('')
+      $.get("/bags/bag_data", function(data, status) {
+        data.forEach(bag => {
+          let newBag = new Bag(bag)
+          console.log(newBag);
+          let postHtml = newBag.formatIndex()
+          $('#bags-data').append(postHtml)
+          console.log(newBag)
+        })
     });
   });
+
 </script>

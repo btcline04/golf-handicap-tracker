@@ -1,3 +1,3 @@
 class BagSerializer < ActiveModel::Serializer
-  attributes :title, :brand
+  attributes :title, :brand, :id
 end

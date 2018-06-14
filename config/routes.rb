@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 root 'bags#index'
+get '/bags/bag_data', to: 'bags#bag_data'
 
 resources :clubs
 resources :bags
