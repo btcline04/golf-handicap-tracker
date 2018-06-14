@@ -23,7 +23,7 @@
 
   Bag.prototype.formatIndex = function() {
     let postHtml = `
-      <p>${this.brand["title"]}</p>
+      <a href="/bags/${this.brand["id"]}"><p>${this.brand["title"]}</p></a>
       <p>${this.brand["brand"]}</p>
       <br>
     `
