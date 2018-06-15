@@ -15,33 +15,10 @@
 </div>
 
 <script type="text/javascript" charset="utf-8">
-  // create js prototype here
-  function Bag (brand, title) {
-    this.brand = brand
-    this.title = title
-  };
-
-  Bag.prototype.formatIndex = function() {
-    let postHtml = `
-      <a href="/bags/${this.brand["id"]}"><p>${this.brand["title"]}</p></a>
-      <p>${this.brand["brand"]}</p>
-      <br>
-    `
-    return postHtml;
-  };
-
   $(function() {
     $("#all_bags").click(function() {
       $('#bags-data').html('')
-      $.get("/bags/bag_data", function(data, status) {
-        data.forEach(bag => {
-          let newBag = new Bag(bag)
-          console.log(newBag);
-          let postHtml = newBag.formatIndex()
-          $('#bags-data').append(postHtml)
-        })
-      })
+        iterateOverBags();
     })
   });
-
 </script>
