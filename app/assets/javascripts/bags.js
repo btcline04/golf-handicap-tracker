@@ -9,9 +9,6 @@ function iterateOverBags() {
   })
 };
 
-
-// Creates Bag constructor function and prototype - each Bag object
-// now has access to the formatIndex() method
 function Bag (brand, title) {
   this.brand = brand
   this.title = title
