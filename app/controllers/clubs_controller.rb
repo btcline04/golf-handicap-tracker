@@ -28,7 +28,11 @@ class ClubsController < ApplicationController
   end
 
   def update
+  end
 
+  def club_info
+    @clubs = current_user.clubs
+    render json: @clubs, status: 201
   end
 
   private
