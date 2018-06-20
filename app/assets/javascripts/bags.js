@@ -2,7 +2,6 @@ function iterateOverBags() {
   $.get("/bags/bag_data", function(data, status) {
     data.forEach(bag => {
       let newBag = new Bag(bag)
-      console.log(newBag);
       let postHtml = newBag.formatIndex()
       $('#bags-data').append(postHtml)
     })

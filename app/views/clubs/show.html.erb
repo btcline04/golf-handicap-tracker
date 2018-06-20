@@ -1,12 +1,26 @@
 <div class="container-fluid">
   <h1>Your Club</h1>
   <br>
-  <h2><%= @club.name %></h2>
-  <br>
-  <h2><%= @club.brand %></h2>
+    <div id="club-info">
+    <h2><%= @club.name %></h2>
+    <br>
+    <h2><%= @club.brand %></h2>
+    </div>
   <br>
   <button class="next-club" data-id="<%= @club.id %>">Next Club</button>
   <br>
   <br>
   <%= link_to "See all of your clubs", club_path %>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    $('.next-club').click(function() {
+      var id = $(this).data("id");
+      $('#club-info').html('')
+      $.get(id + '/next', function(data, status) {
+        console.log(data);
+      })
+    }) 
+  });
+</script>

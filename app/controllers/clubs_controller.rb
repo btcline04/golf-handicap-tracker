@@ -1,5 +1,5 @@
 class ClubsController < ApplicationController
-  before_action :find_club, only: [:show, :edit, :update, :destroy]
+  before_action :find_club, only: [:show, :edit, :update, :destroy, :next]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
@@ -28,6 +28,11 @@ class ClubsController < ApplicationController
   end
 
   def update
+  end
+
+  def next
+    @next_club = @club.next
+    render json: @next_club
   end
 
   def club_info
