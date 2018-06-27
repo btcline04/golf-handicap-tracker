@@ -15,11 +15,9 @@ function Bag(brand, title) {
 
 Bag.prototype.formatIndex = function() {
   let postHtml = `
-    <a href="/bags/${this.brand["id"]}"><p>${this.brand["title"]}</p></a>
+    <a href="/bags/${this.brand["id"]}" class="show_link"><p>${this.brand["title"]}</p></a>
     <p>${this.brand["brand"]}</p>
     <br>
   `
   return postHtml;
 };
-
-
