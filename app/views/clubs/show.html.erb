@@ -2,9 +2,9 @@
   <h1>Your Club</h1>
   <br>
     <div id="club-info">
-    <h2><%= @club.name %></h2>
+    <h2 class="club-name"><%= @club.name %></h2>
     <br>
-    <h2><%= @club.brand %></h2>
+    <h2 class="club-brand"><%= @club.brand %></h2>
     </div>
   <br>
   <button class="next-club" data-id="<%= @club.id %>">Next Club</button>
@@ -19,7 +19,9 @@
       var id = $(this).data("id");
       $('#club-info').html('')
       $.get('/clubs/' + id + '/next', function(data, status) {
-        console.log(data);
+        $('#club-info').append(`<h2>${data.name}</h2>` + 
+          `<br>` + 
+          `<h2>${data.brand}</h2>`);
         // GRAB WHAT YOU NEED FROM THE JSON
         // APPEND IT TO THE DIV#CLUB-INFO
         // PROBABLY WILL NEED TO ADD THE BUTTON INTO THE HTML MARKUP WITH

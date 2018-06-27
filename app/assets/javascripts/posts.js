@@ -3,8 +3,8 @@ function Club(name, brand) {
   this.brand = brand 
 };
 
-Bag.prototype.formatShow = function {
-  let postHtml = `
+// Bag.prototype.formatShow = function {
+//   let postHtml = `
     
-  `
-}
+//   `
+// };
