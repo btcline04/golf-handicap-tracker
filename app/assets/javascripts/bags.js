@@ -8,7 +8,7 @@ function iterateOverBags() {
   })
 };
 
-function Bag (brand, title) {
+function Bag(brand, title) {
   this.brand = brand
   this.title = title
 };

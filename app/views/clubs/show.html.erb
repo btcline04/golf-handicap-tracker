@@ -18,8 +18,12 @@
     $('.next-club').click(function() {
       var id = $(this).data("id");
       $('#club-info').html('')
-      $.get(id + '/next', function(data, status) {
+      $.get('/clubs/' + id + '/next', function(data, status) {
         console.log(data);
+        // GRAB WHAT YOU NEED FROM THE JSON
+        // APPEND IT TO THE DIV#CLUB-INFO
+        // PROBABLY WILL NEED TO ADD THE BUTTON INTO THE HTML MARKUP WITH
+        // EACH INDIVIDUAL CLUB
       })
     }) 
   });
