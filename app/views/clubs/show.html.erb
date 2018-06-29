@@ -2,15 +2,15 @@
   <h1>Your Club</h1>
   <br>
     <div id="club-info">
-    <h2 class="club-name"><%= @club.name %></h2>
-    <br>
-    <h2 class="club-brand"><%= @club.brand %></h2>
+      <h2 class="club-name"><%= @club.name %></h2>
+      <br>
+      <h2 class="club-brand"><%= @club.brand %></h2>
     </div>
-  <br>
-  <button class="next-club btn btn-primary" data-id="<%= @club.id %>">Next Club</button>
-  <br>
-  <br>
-  <a href="/clubs"><button class="btn btn-primary">See All Of Your Clubs</button></a>
+    <br>
+    <div id="btn-toolbar">
+      <button class="next-club btn btn-primary btn-sm" data-id="<%= @club.id %>">Next Club</button>
+      <a href="/clubs"><button class="btn btn-primary btn-sm">See All Of Your Clubs</button></a>    
+    </div>
 </div>
 
 <script type="text/javascript" charset="utf-8">
