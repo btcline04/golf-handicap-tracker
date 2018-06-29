@@ -8,7 +8,8 @@
       <p>Par <%= c.par %></p>
     <% end %>
   <br>
-  <%= link_to "Create a new course", new_course_path %>
-  <br>
-  <%= link_to "See your recent rounds", recent_path %>
+  <div class="btn-toolbar">
+    <a href="/courses/new"><button class="btn btn-primary btn-sm btn-space">Create A New Course</button></a>
+    <a href="/recent"><button class="btn btn-primary btn-sm btn-space">See Your Recent Rounds</
+  </div>
 </div>
