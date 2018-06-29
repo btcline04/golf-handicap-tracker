@@ -21,3 +21,15 @@ Bag.prototype.formatIndex = function() {
   `
   return postHtml;
 };
+
+// function showClubsInBag() {
+//   var id = $(this).data("id")
+//   let showHtml = `
+//   <h4>${club.brand}</h4>
+//   <br>
+//   <h4>${club.name}</h4>
+//   `
+//   $.get('/bags/' + id + '.json', function(data, status) {
+//     data.clubs.forEach(club => {
+//       console.log(club.name)
+// }
