@@ -17,9 +17,10 @@
     <h3>Handicap at this course: <%= total %></h3>
   <% end %>
   <br>
-  <%= link_to "See Your Rounds At #{@course.name}", course_rounds_path(@course) %>
-  <br>
-  <%= link_to "Add Another Round at #{@course.name}", new_course_round_path(@course) %>
-  <br>
-  <%= link_to "My Courses", courses_path %>
+  <div class="btn-toolbar">
+  <%= link_to "See Your Rounds At #{@course.name}", course_rounds_path(@course), class: "btn btn-primary btn-sm btn-space" %>
+  <%= link_to "Add Another Round at #{@course.name}", new_course_round_path(@course), class: "btn btn-primary btn-sm btn-space" %>
+  <%= link_to "My Courses", courses_path, class: "btn btn-primary btn-sm" %>
+  </div>
+
 </div>
