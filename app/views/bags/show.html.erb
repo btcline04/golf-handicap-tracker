@@ -9,24 +9,28 @@
     </div>
 
   <div class="btn-toolbar">
-    <button class="btn btn-primary btn-sm" id="get-clubs" data-id="<%= @bag.id %>">See Clubs In This Bag</button>
-    <a href="/bags"><button class="btn btn-primary btn-sm">See Your Bags</button></a>
+    <button class="btn btn-primary btn-sm btn-space" id="get-clubs" data-id="<%= @bag.id %>">See Clubs In This Bag</button>
+    <%= link_to "See Your Bags", bags_path, class: "btn btn-primary btn-sm" %>
   </div>
 </div>
 
 <script type=text/javascript charset="utf-8">
-  $("#get-clubs").click(function() {
-    var id = $(this).data("id")
-    $.get('/bags/' + id + '.json', function(data, status) {
-      data.clubs.forEach(club => {
-        let clubs = `<br>` +
-        `
-        <h5>${club.brand}</h5>
-        ` +
-        `
-        <h5>${club.name}</h5>
-        `
-        $('#clubs-in-bag').append(clubs)
+  $(function() {
+    $("#get-clubs").click(function() {
+      $('#get-clubs').html('')
+      var id = $(this).data("id")
+      $.get('/bags/' + id + '.json', function(data, status) {
+        data.clubs.forEach(club => {
+          let clubs = `<br>` +
+          `
+          <h5>${club.brand}</h5>
+          ` +
+          `
+          <h5>${club.name}</h5>
+          <br>
+          `
+          $('#clubs-in-bag').append(clubs)
+        })
       })
     })
   });
