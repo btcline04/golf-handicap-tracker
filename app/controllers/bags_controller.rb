@@ -15,7 +15,7 @@ class BagsController < ApplicationController
   def create
     @bag = current_user.bags.build(bag_params)
     if @bag.save
-      redirect_to bag_path(@bag)
+      render json: @bag, status: 201
     else
       flash[:danger] = "Please fill in all fields and try again!"
       redirect_to new_bag_path

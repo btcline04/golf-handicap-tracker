@@ -1,18 +1,48 @@
-<%= simple_form_for @bag do |f| %>
-  <p>
-    <%= f.input :title %>
-    <%= f.input :brand %>
-  </p>
-  
-  <h3>Add a club to your bag while you're at it: </h3>
-  <p>
-  <%= f.simple_fields_for :clubs_attributes do |cf| %>
-    <%= cf.input :name %>
-    <%= cf.input :brand %>
-  <% end %>
-  </p>
 
-  <%= button_tag(type: 'submit', class: "btn btn-primary btn-sm") do %> 
-      Create Bag
+<h1 id="page-title">Create Your New Bag</h1>
+<br>
+<div id="bag-form">  
+
+  <%= simple_form_for @bag do |f| %>
+    <p>
+      <%= f.input :title %>
+      <%= f.input :brand %>
+    </p>
+    
+    <h3>Add a club to your bag while you're at it: </h3>
+    <p>
+    <%= f.simple_fields_for :clubs_attributes do |cf| %>
+      <%= cf.input :name %>
+      <%= cf.input :brand %>
     <% end %>
+    </p>
+
+    <%= button_tag(type: 'submit', class: "btn btn-primary btn-sm") do %> 
+        Create Bag
+      <% end %>
   <% end %> 
+</div>
+
+<div id="postResult">
+  <h2 id="postTitle"></h2>
+  <h2 id="postBrand"></h2>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    $('form').submit(function(e) {
+      e.preventDefault();
+      var values = $(this).serialize();
+      var posting = $.post('/bags', values)
+      posting.done(function(data) {
+        var post = data;
+        var stateObj = data.id
+        $('#bag-form').html('');
+        $('#page-title').text('Your Bag');
+        $('#postTitle').text(post['title']);
+        $('#postBrand').text(post['brand']);
+        history.replaceState(stateObj, null, stateObj);
+      });
+    });
+  });
+</script>
