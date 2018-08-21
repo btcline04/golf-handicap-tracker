@@ -8,28 +8,20 @@ function iterateOverBags() {
   })
 };
 
-function Bag(brand, title) {
-  this.brand = brand
-  this.title = title
-};
 
-Bag.prototype.formatIndex = function() {
-  let postHtml = `
+class Bag {
+  constructor(brand, title) {
+    this.brand = brand
+    this.title = title
+  }
+
+  formatIndex() {
+    let postHtml = `
     <a href="/bags/${this.brand["id"]}" class="show_link"><p>${this.brand["title"]}</p></a>
     <p>${this.brand["brand"]}</p>
     <br>
   `
   return postHtml;
-};
+  }
 
-// function showClubsInBag() {
-//   var id = $(this).data("id")
-//   let showHtml = `
-//   <h4>${club.brand}</h4>
-//   <br>
-//   <h4>${club.name}</h4>
-//   `
-//   $.get('/bags/' + id + '.json', function(data, status) {
-//     data.clubs.forEach(club => {
-//       console.log(club.name)
-// }
+}

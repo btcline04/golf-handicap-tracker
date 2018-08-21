@@ -11,6 +11,7 @@
   <div class="btn-toolbar">
     <button class="btn btn-primary btn-sm btn-space" id="all_bags">See All Bags</button>
     <%= link_to "Create Another Bag", new_bag_path, class: "btn btn-primary btn-sm btn-space" %>
+    <button class="btn btn-primary btn-sm btn-space" id="sort_bags">Sort Bags</button>
   </div>
 </div>
 
@@ -21,4 +22,20 @@
         iterateOverBags();
     })
   });
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    $("#sort_bags").click(function() {
+      $('#bags-data').html('')
+        $.get("/bags/bag_data", function(data, status) {
+          const sortedData = data.sort((a, b) => a.title.localeCompare(b.title));
+            sortedData.forEach(bag => {
+              let newBag = new Bag(bag)
+              let postHtml = newBag.formatIndex()
+              $('#bags-data').append(postHtml)
+            })
+        })
+    })
+  })
 </script>
