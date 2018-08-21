@@ -8,6 +8,16 @@ function iterateOverBags() {
   })
 };
 
+function sortBags() {
+  $.get("/bags/bag_data", function(data, status) {
+  const sortedData = data.sort((a, b) => a.title.localeCompare(b.title));
+    sortedData.forEach(bag => {
+      let newBag = new Bag(bag)
+      let postHtml = newBag.formatIndex()
+      $('#bags-data').append(postHtml)
+    })
+  })
+};
 
 class Bag {
   constructor(brand, title) {
